@@ -42,8 +42,17 @@ with open(csvpath) as csvfile:
         elif profit < 0:
             loss_sum = loss_sum - profit
     total_profit = profit_sum - loss_sum
-    print(f"Total : {total_profit}")
+    print(f"Total : ${total_profit}")
 
     #The average for changes in Profit/Losses over the entire period
     average = total_profit / month_counter
     print(f"Average Change : ${average}")
+
+    #Loop through looking for the Greatest Increase in profits
+    revenue_change = []
+    Greatest_Increase = max(revenue_change)
+    
+    #for row in csvreader:
+        #Greatest_Increase = int(row[0,1])
+        #if Greatest_Increase > 0:
+            #Greatest_Increase_Profits = 
