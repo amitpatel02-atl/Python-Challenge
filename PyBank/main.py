@@ -12,6 +12,12 @@ csvpath = os.path.join("..", "Resources", "budget_data.csv")
 with open(csvpath) as csvfile:
     csvreader = csv.reader(csvfile, delimiter=",")
 
-    # Loop through looking for the months
+    # Read the header row first (skip this step if there is now header)
+    csv_header = next(csvreader)
+    print(f"CSV Header: {csv_header}")
+
+
+    # Loop through looking for the mmonths then add to counter
     for row in csvreader:
-        if row[0] == months:
+        if row_counter +=1
+        print(T)
