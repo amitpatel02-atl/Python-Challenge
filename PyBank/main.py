@@ -22,6 +22,9 @@ with open(csvpath) as csvfile:
     for row in csvreader:
        month_counter= (month_counter+ 1)
 
+    csvfile.seek(0)
+    next(csvreader)
+
     print("Financial Analysis")
     print("------------------")
     print(f"Total Months : {month_counter}")
@@ -34,3 +37,9 @@ with open(csvpath) as csvfile:
 
     for row in csvreader:
         profit = int(row[1])
+        if profit > 0:
+            profit_sum = profit_sum + profit
+        elif profit < 0:
+            loss_sum = loss_sum - profit
+    total_profit = profit_sum - loss_sum
+    print(f"Total : {total_profit}")
