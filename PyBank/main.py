@@ -43,3 +43,7 @@ with open(csvpath) as csvfile:
             loss_sum = loss_sum - profit
     total_profit = profit_sum - loss_sum
     print(f"Total : {total_profit}")
+
+    #The average for changes in Profit/Losses over the entire period
+    average = total_profit / month_counter
+    print(f"Average Change : ${average}")
