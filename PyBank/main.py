@@ -21,7 +21,16 @@ with open(csvpath) as csvfile:
     month_counter = 0
     for row in csvreader:
        month_counter= (month_counter+ 1)
-       
-    print(month_counter)
 
-    #Loop through looking for the 
+    print("Financial Analysis")
+    print("------------------")
+    print(f"Total Months : {month_counter}")
+
+    #Loop through looking for the net total amount of Profit/Losses over the entire period
+    profit_sum = 0
+    loss_sum = 0
+    total_profit = 0
+    profit = 0
+
+    for row in csvreader:
+        profit = int(row[1])
