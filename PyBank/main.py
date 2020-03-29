@@ -16,43 +16,43 @@ with open(csvpath) as csvfile:
     csv_header = next(csvreader)
     print(f"CSV Header: {csv_header}")
 
+    total_profit = 0
+    List_of_changes =[]
+    Greatest_Increase = 0
+    Greatest_Decrease = 0
 
     # Loop through looking for the months then add to counter
     month_counter = 0
     for row in csvreader:
+
+       # Count number of months 
        month_counter= (month_counter+ 1)
 
-    csvfile.seek(0)
-    next(csvreader)
+       # Calculate Total Profit
+       total_profit = total_profit + int(row[1])
+
+       # Calculate month-to-month change
+       if month_counter ==1:
+           previous = int(row[1])
+       else:
+            month_to_month_change = int(row[1]) - previous
+            previous = int(row[1])
+            List_of_changes.append(month_to_month_change)
+
+            # Calculate greatest increase in profits:
+            if Greatest_Increase < month_to_month_change:
+                Greatest_Increase = month_to_month_change
+                Greatest_Increase_Date = str(row[0])
+
+            elif Greatest_Decrease > month_to_month_change:
+                Greatest_Decrease = month_to_month_change
+                Greatest_Decrease_Date = str(row[0])
 
     print("Financial Analysis")
     print("------------------")
     print(f"Total Months : {month_counter}")
-
-    #Loop through looking for the net total amount of Profit/Losses over the entire period
-    profit_sum = 0
-    loss_sum = 0
-    total_profit = 0
-    profit = 0
-
-    for row in csvreader:
-        profit = int(row[1])
-        if profit > 0:
-            profit_sum = profit_sum + profit
-        elif profit < 0:
-            loss_sum = loss_sum - profit
-    total_profit = profit_sum - loss_sum
     print(f"Total : ${total_profit}")
-
-    #The average for changes in Profit/Losses over the entire period
-    average = float("{0:.2f}".format(total_profit / month_counter))
-    print(f"Average Change : ${average}")
-
-    #Loop through looking for the Greatest Increase in profits
-    #revenue_change = []
-    #Greatest_Increase = max(revenue_change)
-    
-    #for row in csvreader:
-        #Greatest_Increase = int(row[0,1])
-        #if Greatest_Increase > 0:
-            #Greatest_Increase_Profits = 
+    print(f"Average Change: float("{0:.2f}".format{sum(List_of_changes)/{month_counter} - 1)")
+    print(f"Greatest Increase in Profits : {Greatest_Increase_Date} {Greatest_Increase}")
+    print(f"Greatest Decrease in Profits : {Greatest_Decrease_Date} {Greatest_Decrease}")
+   
