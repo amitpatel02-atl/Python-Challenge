@@ -6,7 +6,7 @@ import os
 import csv
 
 # Set path for file
-csvpath = os.path.join("..", "Resources", "budget_data.csv")
+csvpath = os.path.join("budget_data.csv")
 
 #Open the csv
 with open(csvpath) as csvfile:
@@ -17,7 +17,11 @@ with open(csvpath) as csvfile:
     print(f"CSV Header: {csv_header}")
 
 
-    # Loop through looking for the mmonths then add to counter
+    # Loop through looking for the months then add to counter
+    month_counter = 0
     for row in csvreader:
-        if row_counter +=1
-        print(T)
+       month_counter= (month_counter+ 1)
+       
+    print(month_counter)
+
+    #Loop through looking for the 
