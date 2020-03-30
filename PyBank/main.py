@@ -48,14 +48,6 @@ with open(csvpath) as csvfile:
                 Greatest_Decrease = month_to_month_change
                 Greatest_Decrease_Date = str(row[0])
     
-    #Set variable for output file
-    output_file = os.path.join("budget_data.csv")
-
-    #  Open the output file
-    with open(output_file, "w") as datafile:
-
-        # Write the header row
-        writer.writerow(["Financial Analysis"])
     print("Financial Analysis")
     print("------------------")
     print(f"Total Months : {month_counter}")
@@ -63,4 +55,3 @@ with open(csvpath) as csvfile:
     print(f"Average Change:{sum(List_of_changes)/ (month_counter-1)}")
     print(f"Greatest Increase in Profits : {Greatest_Increase_Date} (${Greatest_Increase})")
     print(f"Greatest Decrease in Profits : {Greatest_Decrease_Date} (${Greatest_Decrease})")
-   
